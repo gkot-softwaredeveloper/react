@@ -25,7 +25,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-        working-directory: ./fundamentals
-    - run: npm ci
-    - run: npm run build --if-present
+        
+    - name: npm CI
+      working-directory: ./fundamentals
+      run: npm ci
+    - name: npm BUILD
+      working-directory: ./fundamentals
+      run: npm run build --if-present
     - run: npm test
