@@ -29,6 +29,9 @@ jobs:
     - name: npm CI
       working-directory: ./fundamentals
       run: npm ci
+    - name: npm Test
+      working-directory: ./fundamentals
+      run: npm run test
     - name: npm BUILD
       working-directory: ./fundamentals
       run: npm run build --if-present
