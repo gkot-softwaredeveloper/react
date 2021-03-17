@@ -1,5 +1,4 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import App from "./App";
 
 test("Render two types of component", () => {
@@ -15,4 +14,21 @@ test("Render two types of component", () => {
   expect(functionalComponentItem).toHaveTextContent(
     "Hello from Header as a Function Component"
   );
+});
+
+test("Render component with conditional rendering", () => {
+  render(<App />);
+
+  const element = screen.getByTestId("render");
+  expect(element).toBeInTheDocument();
+  expect(element).toHaveTextContent("Render component");
+});
+
+test("Render image when checkbox is checked", () => {
+  render(<App />);
+  const checkbox = screen.getByTestId("app-render-checkbox");
+  fireEvent.click(checkbox);
+
+  const img = screen.getByTestId("app-render-image");
+  expect(img).toBeInTheDocument();
 });
