@@ -12,7 +12,7 @@ function App() {
         <HeaderFunctional componentType="Function" dataTestId="header-func" />
       </div>
       <Render dataTestId="render" />
-      <LifeCycle />
+      <LifeCycle dataTestId="app-lifecycle"/>
     </>
   );
 }
