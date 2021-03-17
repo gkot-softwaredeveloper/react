@@ -32,3 +32,15 @@ test("Render image when checkbox is checked", () => {
   const img = screen.getByTestId("app-render-image");
   expect(img).toBeInTheDocument();
 });
+
+test("Render lifecycle component", () => {
+  render(<App />);
+
+  const component = screen.getByTestId("app-lifecycle");
+
+  expect(component).toBeInTheDocument();
+  expect(component).toHaveTextContent(
+    "Hello from Lifecycle component"
+  );
+  
+});
