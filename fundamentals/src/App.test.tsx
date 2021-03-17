@@ -1,11 +1,18 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('Render two types of component', () => {
+test("Render two types of component", () => {
   render(<App />);
-  const classComponentItem = screen.getByText(/Hello from Header as a Class Component/i);
-  const functionalComponentItem = screen.getByText(/Hello from Header as a Function Component/i);
+
+  const classComponentItem = screen.getByTestId("header-class");
+  const functionalComponentItem = screen.getByTestId("header-func");
   expect(classComponentItem).toBeInTheDocument();
+  expect(classComponentItem).toHaveTextContent(
+    "Hello from Header as a Class Component"
+  );
   expect(functionalComponentItem).toBeInTheDocument();
+  expect(functionalComponentItem).toHaveTextContent(
+    "Hello from Header as a Function Component"
+  );
 });
