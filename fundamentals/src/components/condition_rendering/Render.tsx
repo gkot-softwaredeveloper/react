@@ -18,7 +18,7 @@ export default function Render(props: RenderProps) {
           onChange={(e) => setVisibility(e.target.checked)}
         />
         <label>Display</label>
-        <div>{visibility && <img  data-testid="app-render-image" src={visibilityIcon} />}</div>
+        <div>{visibility && <img  data-testid="app-render-image" src={visibilityIcon} alt="visibility picture" />}</div>
       </div>
     </>
   );
