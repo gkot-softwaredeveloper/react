@@ -44,3 +44,15 @@ test("Render lifecycle component", () => {
   );
   
 });
+
+test("Render lifecycle old component", () => {
+  render(<App />);
+
+  const component = screen.getByTestId("app-lifecycleold");
+
+  expect(component).toBeInTheDocument();
+  expect(component).toHaveTextContent(
+    "Hello from Old Life Cycle"
+  );
+  
+});
