@@ -5,12 +5,12 @@ import { LifeCycleOld } from "./components/component_lifecycle/LifeCycleOld";
 import Render from "./components/condition_rendering/Render";
 import HeaderFunctional from "./components/functional/HeaderFunctional";
 import { useState } from "react";
-import { useFaker } from 'react-fakers'
+import { useFaker } from "react-fakers";
 
 function App() {
-  const[oldLifeCycleTitle, setOldLifeCycleTitle] = useState<string>('');
-  const {success} = useFaker({});
- 
+  const [oldLifeCycleTitle, setOldLifeCycleTitle] = useState<string>("");
+  const { success } = useFaker({});
+
   return (
     <>
       <div className="App">
@@ -18,11 +18,18 @@ function App() {
         <HeaderFunctional componentType="Function" dataTestId="header-func" />
       </div>
       <Render dataTestId="render" />
-      <LifeCycle dataTestId="app-lifecycle"/>
-      <LifeCycleOld dataTestId="app-lifecycleold" title={oldLifeCycleTitle} />
-      <input type="button" onClick={()=>{
-        setOldLifeCycleTitle(success[0].firstname);
-      }} value="Get Title"/>
+      <LifeCycle dataTestId="app-lifecycle" />
+      <LifeCycleOld
+        dataTestId="app-lifecycleold"
+        title={`Hello from Old Life Cycle ${oldLifeCycleTitle}`}
+      />
+      <input
+        type="button"
+        onClick={() => {
+          setOldLifeCycleTitle(success[0].firstname);
+        }}
+        value="Get Title"
+      />
     </>
   );
 }
